@@ -1,7 +1,7 @@
 class DeliveriesController < ApplicationController
   def index
     matching_deliveries = Delivery.all
-    @waiting_on_deliveries = matching_deliveries.where({ :arrived => false })
+    @waiting_on_deliveries = matching_deliveries.where({ :arrived => false }).order({ :supposed_to_arrive_on => :asc })
     @received_deliveries = matching_deliveries.where({ :arrived => true })
 
     render({ :template => "deliveries/index" })

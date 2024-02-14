@@ -59,7 +59,7 @@
       <li>
         <div> <%= delivery.description %> </div>
 
-        <% if delivery.supposed_to_arrive_on > delivery.created_at %>
+        <% if delivery.supposed_to_arrive_on < delivery.created_at %>
           <div style="color: red">
             Supposed to arrive on
             <%= delivery.supposed_to_arrive_on %>
