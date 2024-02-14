@@ -57,13 +57,10 @@
   <ul>
     <% @waiting_on_deliveries.each do |delivery| %>
       <li>
-        <div> <%= delivery.description %> </div>
+        <div><%= delivery.description %></div>
 
-        <% if delivery.supposed_to_arrive_on < delivery.created_at %>
-          <div style="color: red">
-            Supposed to arrive on
-            <%= delivery.supposed_to_arrive_on %>
-          </div>
+        <% if delivery.supposed_to_arrive_on > delivery.created_at %>
+          <div style="color: red">Supposed to arrive on <%= delivery.supposed_to_arrive_on %></div>
         <% end %>
 
         <div>
@@ -98,7 +95,7 @@
 
         <div>
           <small>
-            Updated at <%= time_ago_in_words(delivery.updated_at) %>
+            Updated <%= time_ago_in_words(delivery.updated_at) %>
 
             <a href="/delete_delivery/<%= delivery.id %>">Delete</a>
           </small>
