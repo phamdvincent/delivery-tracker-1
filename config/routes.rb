@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get("/", { :controller => "deliveries", :action => "index" })
+
   # Routes for the Delivery resource:
 
   # CREATE
